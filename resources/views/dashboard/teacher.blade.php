@@ -44,7 +44,7 @@
            <td>{{$student->phone}}</td>
            <td>{{$student->section->name}}</td>
            <td><button><a href="{{route('teacher.gradeReport')}}?student_id={{$student->id}}">view</a></button></td>
-           <td><button><a>edit</a></button></td>
+           <td><button><a href="{{route('teacher.updateMarks')}}?student_id={{$student->id}}" >edit</a></button></td>
        </tr>
     @endforeach
         </tbody>

@@ -13,4 +13,5 @@ Route::get('/teacher/dashboard/grade-report', 'App\Http\Controllers\TeacherContr
 Route::get('/teacher/dashboard/update-marks', 'App\Http\Controllers\TeacherController@updateMarksForm')->middleware('auth:teacher')->name('teacher.updateMarksForm');
 Route::post('/teacher/dashboard/update-marks', 'App\Http\Controllers\TeacherController@studentUpdateMarks')->middleware('auth:teacher')->name('teacher.updateMarks');
 Route::get('/student/dashboard/grade-report', 'App\Http\Controllers\StudentController@gradeReport')->middleware('auth:student')->name('student.gradeReport');
+Route::get('/teacher/getMarks/{studentId}/{termId}', 'App\Http\Controllers\TeacherController@getMarks')->middleware('auth:teacher')->name('teacher.getMarks');
 

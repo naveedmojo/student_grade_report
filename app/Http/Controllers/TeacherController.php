@@ -62,76 +62,76 @@ class TeacherController extends Controller
     }
 
     }
-    public function updateMarksForm()
+    public function updateMarksForm(Request $request)
     {
-        $sections=Section::all();
-        $students=Student::all();
+        $student_id=$request->student_id;
         $terms=Term::all();
         $subjects=Subject::all();
-        return view('teachers.marksUpdate',compact('sections','students','terms','subjects'));
+        $marks=Student::with('grade')->find($student_id);
+
+        return view('teachers.marksUpdate',compact('terms','subjects','student_id'));
     }
-    public function studentUpdateMarks(Request $request){
-    try{
+    public function studentUpdateMarks(Request $request)
+    {
+        try {
 
-        $validatedData = $request->validate([
-            'section_id' => 'required|numeric|exists:sections,id',
-            'student_id' => 'required|numeric|exists:students,id',
-            'subject_id.*' => 'required|numeric|min:0|max:100',
-            'term_id' => 'required|exists:terms,id',
-        ]);
+            $validatedData = $request->validate([
+                'student_id' => 'required|numeric|exists:students,id',
+                'subject_id.*' => 'required|numeric|min:0|max:100',
+                'term_id' => 'required|exists:terms,id',
+            ]);
 
-        foreach ($validatedData['subject_id'] as $key => $value) {
-            $grade='';
-            $result='';
-            if($value>=90){
-                $grade='A+';
+            foreach ($validatedData['subject_id'] as $key => $value) {
+                $grade = '';
+                $result = '';
+                if ($value >= 90) {
+                    $grade = 'A+';
+                } else if ($value >= 80) {
+                    $grade = 'A';
+                } else if ($value >= 70) {
+                    $grade = 'B+';
+                } else if ($value >= 60) {
+                    $grade = 'B';
+                } else if ($value >= 50) {
+                    $grade = 'C+';
+                } else if ($value >= 40) {
+                    $grade = 'C';
+                } else if ($value >= 25) {
+                    $grade = 'D';
+                } else {
+                    $grade = 'F';
+                }
+                if ($grade === 'F') {
+                    $result = 'FAIL';
+                } else {
+                    $result = 'PASS';
+                }
+                Grade::updateOrCreate(
+                    [
+                        'subject_id' => $key,
+                        'student_id' => $validatedData['student_id'],
+                        'term_id' => $validatedData['term_id'],
+                    ],
+                    [
+                        'marks' => $value,
+                        'grade' => $grade,
+                        'result' => $result,
+                    ]
+                );
             }
-            else if($value>=80){
-                $grade='A';
-            }
-            else if($value>=70){
-                $grade='B+';
-            }
-            else if($value>=60){
-                $grade='B';
-            }
-            else if($value>=50){
-                $grade='C+';
-            }
-            else if($value>=40){
-                $grade='C';
-            }
-            else if($value>=25){
-                $grade='D';
-            }
-            else{
-                $grade='F';
-            }
-            if($grade==='F'){
-                $result='FAIL';
-            }
-            else{
-                $result='PASS';
-            }
-            Grade::updateOrCreate(
-                [
-                    'subject_id' => $key,
-                    'student_id' => $validatedData['student_id'],
-                    'term_id' => $validatedData['term_id'],
-                ],
-                [
-                    'marks' => $value,
-                    'grade' => $grade,
-                    'result' => $result,
-                ]
-            );
+            return redirect()->back()->with('success', 'Marks updated succesfully');
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', $exception->getMessage());
         }
-        return redirect()->back()->with('success','Marks updated succesfully');
     }
-    catch (\Exception $exception){
-        return redirect()->back()->with('error',$exception->getMessage());
-    }
+    public function getMarks($studentId, $termId)
+        {
+            $marks = Grade::where('student_id', $studentId)
+                ->where('term_id', $termId)
+                ->get(['subject_id', 'marks']);
+            return response()->json(['marks' => $marks]);
+        }
 
 
-    }
+
 }
