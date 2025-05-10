@@ -20,7 +20,7 @@ body {
     background-color: #444;
     color: white;
     padding: 15px;
-    height: 100vh;
+    min-height: 90vh;
 }
 
 .sidebar a {
@@ -67,5 +67,5 @@ input,select{
 }
 input[type="submit"],button[type='submit']{
     height: 30px;
-    background: #eee;
+    background: hotpink;
 }

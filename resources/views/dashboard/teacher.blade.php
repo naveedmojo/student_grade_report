@@ -1,8 +1,17 @@
 @extends('layout.dashboard')
 
 @section('title', 'Teacher Dashboard')
+<style>
 
+    a{
+        text-decoration: none;
+
+    }
+</style>
 @section('content')
+    @if(session('error'))
+        <p>{{session('error')}}</p>
+    @endif
     <h1>Welcome to the Teacher Dashboard</h1>
     <p>YOU CAN MANAGE STUDENTS HERE</p>
     <table border="1px" cellpadding="5px" >
@@ -34,8 +43,8 @@
            <td>{{$student->email}}</td>
            <td>{{$student->phone}}</td>
            <td>{{$student->section->name}}</td>
-           <td><button>view</button></td>
-           <td><button>edit</button></td>
+           <td><button><a href="{{route('teacher.gradeReport')}}?student_id={{$student->id}}">view</a></button></td>
+           <td><button><a>edit</a></button></td>
        </tr>
     @endforeach
         </tbody>

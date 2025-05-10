@@ -12,5 +12,5 @@ Route::post('/teacher/dashboard/student-register', 'App\Http\Controllers\Teacher
 Route::get('/teacher/dashboard/grade-report', 'App\Http\Controllers\TeacherController@gradeReport')->middleware('auth:teacher')->name('teacher.gradeReport');
 Route::get('/teacher/dashboard/update-marks', 'App\Http\Controllers\TeacherController@updateMarksForm')->middleware('auth:teacher')->name('teacher.updateMarksForm');
 Route::post('/teacher/dashboard/update-marks', 'App\Http\Controllers\TeacherController@studentUpdateMarks')->middleware('auth:teacher')->name('teacher.updateMarks');
-
+Route::get('/student/dashboard/grade-report', 'App\Http\Controllers\StudentController@gradeReport')->middleware('auth:student')->name('student.gradeReport');
 
