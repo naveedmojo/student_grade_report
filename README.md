@@ -1,61 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!DOCTYPE html>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Report System</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        h1, h2, h3, h4 { color: #333; margin-bottom: 10px; }
+        ul { margin: 0 0 20px 20px; }
+        pre, code { background-color: #f4f4f4; padding: 5px; border-radius: 5px; display: block; }
+        code { display: inline; padding: 2px 4px; }
+        section { margin: 20px 0; }
+    </style>
+</head>
+<body>
 
-## About Laravel
+<h1>Student Grade Report System</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<section>
+    <h2>Project Description</h2>
+    <p>The <strong>Student Grade Report System</strong> is a web application built using <strong>PHP Laravel</strong> and <strong>MySQL</strong>. This application allows teachers to register students, update their marks, and view the registered student details. Students can also view their grade reports through the system.</p>
+</section>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<section>
+    <h2>Features</h2>
+    <ul>
+        <li>Teacher Registration</li>
+        <li>Student Registration</li>
+        <li>Update Student Marks</li>
+        <li>View Student Details</li>
+        <li>View Updated Marks</li>
+    </ul>
+</section>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<section>
+    <h2>Technologies Used</h2>
+    <ul>
+        <li>Backend: PHP (Laravel Framework)</li>
+        <li>Database: MySQL</li>
+    </ul>
+</section>
 
-## Learning Laravel
+<section>
+    <h2>Installation</h2>
+    <h3>Clone the Project</h3>
+    <pre><code>git clone https://github.com/yourusername/student-grade-report.git
+cd student-grade-report</code></pre>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+<h3>Install Dependencies</h3>
+<pre><code>composer install
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+npm install</code></pre>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
+<h3>Environment Setup</h3>
+<p>Copy the <code>.env.example</code> file to create your <code>.env</code> file:</p>
+<pre><code>cp .env.example .env</code></pre>
 
-## Laravel Sponsors
+<h3>Generate an Application Key</h3>
+<pre><code>php artisan key:generate</code></pre>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<h3>Database Configuration</h3>
+<p>Update your <code>.env</code> file with your database credentials:</p>
+<pre><code>DB_CONNECTION=mysql
+```
 
-### Premium Partners
+DB\_HOST=127.0.0.1
+DB\_PORT=3306
+DB\_DATABASE=student\_grade\_db
+DB\_USERNAME=root
+DB\_PASSWORD=yourpassword</code></pre>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+```
+<h3>Run Migrations</h3>
+<pre><code>php artisan migrate:fresh --seed</code></pre>
 
-## Contributing
+<h3>Start the Development Server</h3>
+<pre><code>php artisan serve</code></pre>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<p>Visit the application at:</p>
+<pre><code>http://localhost:8000/login</code></pre>
+```
 
-## Code of Conduct
+</section>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<section>
+    <h2>Usage</h2>
+    <ul>
+        <li>Teachers can register students and update their grades.</li>
+        <li>Students can view their details and updated marks after login.</li>
+    </ul>
+</section>
 
-## Security Vulnerabilities
+<section>
+    <h2>Contributing</h2>
+    <p>Contributions are welcome! Feel free to submit a pull request or open an issue for any improvements or bug fixes.</p>
+</section>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<section>
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License.</p>
+</section>
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+</body>
+</html>
