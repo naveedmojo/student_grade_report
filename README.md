@@ -1,20 +1,4 @@
-<!DOCTYPE html>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Grade Report System</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; }
-        h1, h2, h3, h4 { color: #333; margin-bottom: 10px; }
-        ul { margin: 0 0 20px 20px; }
-        pre, code { background-color: #f4f4f4; padding: 5px; border-radius: 5px; display: block; }
-        code { display: inline; padding: 2px 4px; }
-        section { margin: 20px 0; }
-    </style>
-</head>
-<body>
 
 <h1>Student Grade Report System</h1>
 
