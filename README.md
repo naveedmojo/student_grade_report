@@ -33,23 +33,23 @@
 cd student-grade-report</code></pre>
 
 ```
-<h3>Install Dependencies</h3>
-<pre><code>composer install
+Install Dependencies
+composer install
 ```
 
 npm install</code></pre>
 
 ```
-<h3>Environment Setup</h3>
-<p>Copy the <code>.env.example</code> file to create your <code>.env</code> file:</p>
-<pre><code>cp .env.example .env</code></pre>
+Environment Setup
+Copy the <code>.env.example file to create your <code>.env file:
+cp .env.example .env
 
-<h3>Generate an Application Key</h3>
-<pre><code>php artisan key:generate</code></pre>
+Generate an Application Key
+php artisan key:generate
 
-<h3>Database Configuration</h3>
-<p>Update your <code>.env</code> file with your database credentials:</p>
-<pre><code>DB_CONNECTION=mysql
+Database Configuration
+Update your .env file with your database credentials
+DB_CONNECTION=mysql
 ```
 
 DB\_HOST=127.0.0.1
@@ -59,14 +59,14 @@ DB\_USERNAME=root
 DB\_PASSWORD=yourpassword</code></pre>
 
 ```
-<h3>Run Migrations</h3>
-<pre><code>php artisan migrate:fresh --seed</code></pre>
+Run Migrations
+php artisan migrate:fresh --seed
 
-<h3>Start the Development Server</h3>
-<pre><code>php artisan serve</code></pre>
+Start the Development Server
+php artisan serve
 
-<p>Visit the application at:</p>
-<pre><code>http://localhost:8000/login</code></pre>
+Visit the application at:
+http://localhost:8000/login
 ```
 
 </section>
